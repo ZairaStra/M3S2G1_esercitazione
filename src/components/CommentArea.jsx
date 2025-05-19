@@ -37,9 +37,10 @@ class CommentArea extends Component {
     }
   };
 
-  componentDidMount() {
+  //in questo caso non è necessario fare il componentdidmount perchè prima di selezionare un libro e avere un asin non ho bisogno di una comment area
+  /* componentDidMount() {
     this.fetchComments();
-  }
+  } */
 
   componentDidUpdate(prevProps) {
     if (prevProps.asin !== this.props.asin) {
@@ -56,12 +57,16 @@ class CommentArea extends Component {
         {loading && <Spinner animation="border" variant="danger" />}
         {hasError && <Alert variant="danger">{errorMessage}</Alert>}
 
-        {!loading && !hasError && (
-          <>
-            <CommentList comments={comments} />
-            <AddComment asin={this.props.asin} onCommentAdded={this.handleCommentAdded} />
-          </>
-        )}
+        {!loading &&
+          !hasError &&
+          (this.props.asin ? (
+            <>
+              <CommentList comments={comments} />
+              <AddComment asin={this.props.asin} onCommentAdded={this.handleCommentAdded} fetchComments={this.fetchComments} />
+            </>
+          ) : (
+            <p className="text-center text-muted mt-5">Click on a book to view comments and leave us your review!</p>
+          ))}
       </Container>
     );
   }

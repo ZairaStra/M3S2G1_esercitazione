@@ -61,6 +61,8 @@ class AddComment extends Component {
 
         if (this.props.onCommentAdded) {
           this.props.onCommentAdded();
+
+          this.props.fetchComments();
         }
       } else {
         throw new Error("Failed to submit review");

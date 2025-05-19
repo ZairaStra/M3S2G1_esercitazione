@@ -7,7 +7,7 @@ class BookList extends Component {
   state = {
     searchQuery: "",
     showBooks: false,
-    selectedBook: null,
+    selectedBook: "",
     showAlert: false,
   };
 
@@ -39,7 +39,7 @@ class BookList extends Component {
           <h3 className="my-4 font-monospace text-center text-danger-emphasis">
             {books.length > 0 ? `Search by name in: ${books[0].category.toUpperCase()}` : "Search by name"}
           </h3>
-          {/* <h3 className="my-4 font-monospace text-center">Search by name in the category: {this.props.books[0].category}</h3> */}
+          {/* sezione barra di ricerca e pulsante mostra carte- non necessaria*/}
           <Row className="my-3 justify-content-center">
             <Col className="col-12 col-md-10">
               <Row className="justify-content-center gx-4 gy-4 mb-5">
@@ -80,7 +80,11 @@ class BookList extends Component {
                         <Col key={book.asin}>
                           <SingleBook
                             book={book}
+                            //controllo per rendere unico book asin e non accavallarne più di uno
                             isCardSelected={selectedBook === book.asin}
+                            //funzione che aggiorna il book.asin a seconda della card cliccata
+                            //informazione passata da single book a booklist (dentro-fuori) tramite
+                            //state-elevation
                             cardToggle={() => this.cardToggle(book.asin)}
                             onCommentAdded={this.commentAdded}
                           />
