@@ -72,7 +72,7 @@ class BookList extends Component {
           {showBooks && (
             <>
               <Row className="gy-4">
-                <Col xs={12} sm={7} md={8}>
+                <Col xs={12} sm={7} md={8} className="scrollable-col">
                   <Row xs={1} sm={2} md={3} className="gy-4">
                     {this.props.books
                       .filter((book) => book.title.toLowerCase().includes(this.state.searchQuery.toLowerCase()))
@@ -89,7 +89,7 @@ class BookList extends Component {
                   </Row>
                 </Col>
 
-                <Col xs={12} sm={5} md={4}>
+                <Col xs={12} sm={5} md={4} className="fixed-col">
                   {selectedBook ? (
                     <CommentArea asin={selectedBook} onCommentAdded={this.commentAdded} />
                   ) : (

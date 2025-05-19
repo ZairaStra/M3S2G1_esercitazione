@@ -73,7 +73,7 @@ class AddComment extends Component {
   render() {
     return (
       <Form onSubmit={this.onSubmit}>
-        <h6 className="text-danger-emphasis">Add a comment!</h6>
+        <h6 className="text-danger-emphasis mt-3">Add a comment!</h6>
         <Form.Group className="my-2" controlId="formText">
           <Form.Label className="text-danger-emphasis">Your review</Form.Label>
           <Form.Control

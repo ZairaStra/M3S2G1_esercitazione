@@ -4,6 +4,18 @@ body {
   min-height: 90vh;
 }
 
+.scrollable-col {
+  max-height: 80vh; /* Imposta un'altezza massima per il contenuto */
+  overflow-y: auto; /* Aggiungi la possibilità di scorrere verticalmente */
+  position: relative; /* Necessario per avere un posizionamento relativo se vuoi aggiungere altro stile */
+}
+
+.fixed-col {
+  position: sticky; /* La colonna rimarrà fissa quando si scorre */
+  top: 0; /* Fissa la colonna in alto */
+  height: 100vh; /* Imposta la colonna di destra a coprire tutta l'altezza dello schermo */
+}
+
 .singleCard {
   height: 100%;
 }
