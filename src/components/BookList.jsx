@@ -99,7 +99,7 @@ const BookList = ({ books }) => {
 
               <Col xs={12} sm={5} md={4} className="fixed-col">
                 {selectedBook ? (
-                  <CommentArea asin={selectedBook} onCommentAdded={commentAdded} />
+                  <CommentArea asin={selectedBook?.asin} onCommentAdded={commentAdded} />
                 ) : (
                   <p className="text-center text-muted mt-5">Click on a book to view comments and leave us your review!</p>
                 )}
