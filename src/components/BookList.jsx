@@ -20,7 +20,7 @@ const BookList = ({ books }) => {
   }; */
 
   const cardToggle = (asin) => {
-    setSelectedBook(asin);
+    setSelectedBook((prev) => (prev === asin ? "" : asin));
   };
 
   const commentAdded = () => {
