@@ -22,6 +22,7 @@ const SingleBook = ({ book, isCardSelected, cardToggle }) => {
         <Card.Img className="singleCardImg" variant="top" src={book.img} onClick={cardToggle} style={{ cursor: "pointer" }} />
         <Card.Body className="text-center">
           <Card.Title className="singleCardTitle overflow-hidden text-danger-emphasis">{book.title}</Card.Title>
+          {/* gestisco CommentArea direttamente da Booklist */}
           {/*   {isCardSelected && <CommentArea asin={book.asin} onCommentAdded={onCommentAdded} />} */}
         </Card.Body>
       </Card>

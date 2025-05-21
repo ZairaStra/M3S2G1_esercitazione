@@ -3,7 +3,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI1ZTQ0MzFlYmU4MjAwMTUwOWYzMGMiLCJpYXQiOjE3NDczMTM3MzEsImV4cCI6MTc0ODUyMzMzMX0.sOUGPFm9rwM0pYvE3wqyxXhkj2MG6LblP4jVZPpikrI";
 
-const AddComment = ({ asin, fetchComments }) => {
+const AddComment = ({ asin, fetchComments, onCommentAdded }) => {
   /*  state = {
     comment: "",
     rate: 1,
@@ -58,6 +58,7 @@ const AddComment = ({ asin, fetchComments }) => {
         setSuccess(true);
         setHasError(false);
         fetchComments(); // aggiorna la lista commenti
+        onCommentAdded && onCommentAdded();
       } else {
         setHasError(true);
         setSuccess(false);

@@ -7,14 +7,14 @@ const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODI1ZTQ0MzFlYmU4MjAwMTUwOWYzMGMiLCJpYXQiOjE3NDczMTM3MzEsImV4cCI6MTc0ODUyMzMzMX0.sOUGPFm9rwM0pYvE3wqyxXhkj2MG6LblP4jVZPpikrI";
 
 //ricorda SEMPRE  di passarti l eprop come argomento!!!!
-const CommentArea = ({ asin }) => {
+const CommentArea = ({ asin, onCommentAdded }) => {
   /*  state = {
     comments: [],
     loading: false,
     hasError: false,
     errorMessage: "",
   }; */
-
+  console.log("🔍 ASIN ricevuto in CommentArea:", asin);
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -23,7 +23,6 @@ const CommentArea = ({ asin }) => {
   const fetchComments = async () => {
     //this.setState({ loading: true, hasError: false });
     if (!asin) {
-      console.log("🔍 ASIN ricevuto in CommentArea:", asin);
       return;
     }
     setLoading(true);
@@ -79,7 +78,7 @@ const CommentArea = ({ asin }) => {
       {!loading && !hasError && asin ? (
         <>
           <CommentList comments={comments} />
-          <AddComment asin={asin} fetchComments={fetchComments} />
+          <AddComment asin={asin} fetchComments={fetchComments} onCommentAdded={onCommentAdded} />
         </>
       ) : (
         !loading && !hasError && <p className="text-center text-muted mt-5">Click on a book to view comments and leave us your review!</p>
